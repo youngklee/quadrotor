@@ -16,9 +16,10 @@ static uint8_t alt[4];
 
 int main(int argc, char *argv[])
 {
+    printf("Reading sonar...\n");
     struct termios origtio;
 
-    int sonar_fd = open("/dev/ttyUSB1", O_RDWR | O_NOCTTY | O_NDELAY);
+    int sonar_fd = open("/dev/ttyUSB0", O_RDWR | O_NOCTTY | O_NDELAY);
 
     if (sonar_fd < 0) {
         perror("open");
@@ -68,7 +69,7 @@ int main(int argc, char *argv[])
             }
         }
         alt = atoi(alt_char);
-//        printf("%i\n", atoi(alt));
+        printf("%i\n", alt);
         usleep(100);
     }
     return ret;
