@@ -1,0 +1,7 @@
+package exlcm;
+
+struct altitude_t
+{
+	int64_t timestamp;
+	int16_t altitude;
+}
